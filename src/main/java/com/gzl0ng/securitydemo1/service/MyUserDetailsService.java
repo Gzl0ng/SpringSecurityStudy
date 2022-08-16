@@ -50,6 +50,7 @@ public class MyUserDetailsService implements UserDetailsService {
             //数据库没有这个对象
             throw  new UsernameNotFoundException("用户名不存在");
         }
+        //手动创建一个集合，实际也是从数据库查
         List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList("role");
 
         //从查询数据库返回users对象，得到用户名和密码，返回

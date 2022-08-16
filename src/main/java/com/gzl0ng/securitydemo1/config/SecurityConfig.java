@@ -15,6 +15,12 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 //@Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * 重写config方法，存入的auth可设置用户名和密码和角色
+     * BCryptPasswordEncoder是常用的加密类
+     * @param auth
+     * @throws Exception
+     */
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -25,7 +31,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * 这是springsecurity提供的密码加密类，可以手动实现PasswordEncode进行加密
-     * 需要手动创建这个加密对象  加@Bean注解
+     * 需要手动创建这个加密对象（方法名是任意的，主要是让spring创建这个对象）  加@Bean注解
      * @return
      */
     @Bean
