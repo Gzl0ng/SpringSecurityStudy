@@ -51,7 +51,7 @@ public class MyUserDetailsService implements UserDetailsService {
             throw  new UsernameNotFoundException("用户名不存在");
         }
         //手动创建一个集合，实际也是从数据库查
-        List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList("role");
+        List<GrantedAuthority> auths = AuthorityUtils.commaSeparatedStringToAuthorityList("admins");
 
         //从查询数据库返回users对象，得到用户名和密码，返回
         return new User(users.getUsername(),new BCryptPasswordEncoder().encode(users.getPassword()),auths);
